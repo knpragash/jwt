@@ -1,0 +1,16 @@
+security.jwt.token.secret-key: my-secret-key
+
+spring:
+  application:
+    name: jwt
+  datasource:
+    url: jdbc:mysql://localhost:3306/serlesen #change this to your database url
+    password: Seagate123 #change this to your database username
+    username: raavana #change this to your database password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
