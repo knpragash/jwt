@@ -30,12 +30,17 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody RegisterDto registerDto) {
+        UserDto userDto = null;
 
-        System.out.println("Register: " + registerDto.toString());
-        UserDto userDto = userService.register(registerDto);
-        userDto.setToken(userAuthenticationProvider.createToken(userDto));
-        System.out.println("User: " + userDto);
-        return ResponseEntity.ok()
+//        try {
+            userDto = userService.register(registerDto);
+            userDto.setToken(userAuthenticationProvider.createToken(userDto));
+//        } catch (RuntimeException r) {
+//            System.out.println("Non Uniq is caught: " + r.getMessage());
+//        }
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
                 .header("HedDet", "haha head detail")
                 .body(userDto);
     }

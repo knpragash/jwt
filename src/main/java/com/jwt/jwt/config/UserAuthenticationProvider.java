@@ -24,7 +24,6 @@ public class UserAuthenticationProvider {
     protected void init() {
         // this is to avoid having the raw secret key available in the JVM
         secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
-        System.out.println("Encoded secret: " + secretKey);
     }
 
     public String createToken(UserDto user) {
@@ -33,7 +32,6 @@ public class UserAuthenticationProvider {
 
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         return JWT.create()
-//                .withSubject(user.getLogin())
                 .withSubject(user.getEmail())
                 .withIssuedAt(now)
                 .withExpiresAt(validity)
