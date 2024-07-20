@@ -92,6 +92,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>jwt</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
