@@ -91,6 +91,19 @@
 		</dependency>
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://localhost:8082/repository/CICD-Release/</url>
+		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Internal Snapshot Releases</name>
+			<url>http://localhost:8082/repository/CICD-Snap/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<build>
 		<finalName>jwt</finalName>
 		<plugins>
