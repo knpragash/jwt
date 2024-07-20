@@ -1,6 +1,5 @@
-package com.jwt.jwt.service;
+package com.jwt.jwt.service.user;
 
-import com.jwt.jwt.dto.LoginDto;
 import com.jwt.jwt.dto.RegisterDto;
 import com.jwt.jwt.dto.UserDto;
 import com.jwt.jwt.entity.User;
@@ -10,10 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
 @Service
-public class UserService {
+public class UserServiceImpl implements IService{
 
     @Autowired
     private UserRepository userRepository;

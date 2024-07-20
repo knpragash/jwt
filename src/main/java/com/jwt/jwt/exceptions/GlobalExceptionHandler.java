@@ -29,7 +29,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(EmailExistsException.class)
     public ResponseEntity<ErrorResponseDto> handleCustomerAlreadyExistsException(EmailExistsException exception,
                                                                                  WebRequest webRequest){
-        System.out.println("handler err: " + exception.getMessage());
         ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
                 webRequest.getDescription(false),
                 HttpStatus.BAD_REQUEST,
@@ -37,7 +36,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 LocalDateTime.now()
         );
 
-        System.out.println("mes: " + errorResponseDTO.toString());
         return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
     }
 }

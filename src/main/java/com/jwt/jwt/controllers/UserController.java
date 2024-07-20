@@ -4,7 +4,7 @@ import com.jwt.jwt.config.UserAuthenticationProvider;
 import com.jwt.jwt.dto.LoginDto;
 import com.jwt.jwt.dto.RegisterDto;
 import com.jwt.jwt.dto.UserDto;
-import com.jwt.jwt.service.UserService;
+import com.jwt.jwt.service.user.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Autowired
     private UserAuthenticationProvider userAuthenticationProvider;
@@ -30,14 +30,8 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody RegisterDto registerDto) {
-        UserDto userDto = null;
-
-//        try {
-            userDto = userService.register(registerDto);
-            userDto.setToken(userAuthenticationProvider.createToken(userDto));
-//        } catch (RuntimeException r) {
-//            System.out.println("Non Uniq is caught: " + r.getMessage());
-//        }
+        UserDto userDto = userService.register(registerDto);
+        userDto.setToken(userAuthenticationProvider.createToken(userDto));
 
         return ResponseEntity
                 .status(HttpStatus.OK)
