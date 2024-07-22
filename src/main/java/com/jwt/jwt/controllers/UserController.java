@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3200")
+@RequestMapping("/auth")
 public class UserController {
 
     @Autowired
@@ -28,16 +29,16 @@ public class UserController {
         return ResponseEntity.ok(Arrays.asList("first", "3rd"));
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<UserDto> register(@RequestBody RegisterDto registerDto) {
-        UserDto userDto = userService.register(registerDto);
-        userDto.setToken(userAuthenticationProvider.createToken(userDto));
-
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .header("HedDet", "haha head detail")
-                .body(userDto);
-    }
+//    @PostMapping("/register")
+//    public ResponseEntity<UserDto> register(@RequestBody RegisterDto registerDto) {
+//        UserDto userDto = userService.register(registerDto);
+//        userDto.setToken(userAuthenticationProvider.createToken(userDto));
+//
+//        return ResponseEntity
+//                .status(HttpStatus.OK)
+//                .header("HedDet", "haha head detail")
+//                .body(userDto);
+//    }
 
     @PostMapping("/login")
     public ResponseEntity<UserDto> login(@RequestBody LoginDto loginDto, @RequestHeader (name="Authorization") String token) {
