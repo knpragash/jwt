@@ -112,14 +112,14 @@
 
 	<distributionManagement>
 		<repository>
-			<id>deployment</id>
+			<id>maven-releases</id>
 			<name>Internal Releases</name>
-			<url>http://localhost:8082/repository/CICD-Release/</url>
+			<url>http://54.151.249.20:8081/repository/maven-releases/</url>
 		</repository>
 		<snapshotRepository>
-			<id>deployment</id>
+			<id>maven-snapshots</id>
 			<name>Internal Snapshot Releases</name>
-			<url>http://localhost:8082/repository/CICD-Snap/</url>
+			<url>http://54.151.249.20:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
